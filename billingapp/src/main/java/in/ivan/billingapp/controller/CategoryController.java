@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/categories")
 @RequiredArgsConstructor
+@CrossOrigin("*") // FrontEnd from like port 5173 can reach BackEnd port 8080
 public class CategoryController {
 
     private final CategoryService categoryService;
