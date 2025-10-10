@@ -1,12 +1,12 @@
 import './MenuBar.css';
-import logo from '../../assets/assets.js';
+import { assets } from '../../assets/assets.js';
 import { Link } from 'react-router-dom';
 
 const MenuBar = () => {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-2">
             <a class="navbar-brand" href="#">
-                <img src={logo} alt="Logo" height="60" />
+                <img src={assets.logo} alt="Logo" height="60" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

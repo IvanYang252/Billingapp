@@ -1,3 +1,7 @@
 import logo from './logo.png';
+import upload from './upload.jpg'
 
-export default logo;
+export const assets = {
+    logo,
+    upload
+}
