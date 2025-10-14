@@ -16,9 +16,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/categories")
 @RequiredArgsConstructor
-@CrossOrigin("*") // FrontEnd from like port 5173 can reach BackEnd port 8080
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -34,7 +32,7 @@ public class CategoryController {
     note: need to use ObjectMapper to convert json string to object manually
      */
 
-    @PostMapping
+    @PostMapping("/admin/categories")
     @ResponseStatus(HttpStatus.CREATED) // Return 201 Created status
     public CategoryResponse addCategory(@RequestPart("category") String categoryJson,
                                         @RequestPart("file") MultipartFile file) {
@@ -53,7 +51,7 @@ public class CategoryController {
         return categoryService.read();
     }
 
-    @DeleteMapping("/{categoryId}")
+    @DeleteMapping("/admin/categories/{categoryId}")
     @ResponseStatus(HttpStatus.NO_CONTENT) // Return 204 No Content status
     public void deleteCategory(@PathVariable String categoryId) {
         try {
