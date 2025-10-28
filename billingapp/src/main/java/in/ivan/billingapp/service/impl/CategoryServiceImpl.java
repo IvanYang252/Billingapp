@@ -4,6 +4,7 @@ import in.ivan.billingapp.entity.CategoryEntity;
 import in.ivan.billingapp.io.CategoryRequest;
 import in.ivan.billingapp.io.CategoryResponse;
 import in.ivan.billingapp.repository.CategoryRepository;
+import in.ivan.billingapp.repository.ItemRepository;
 import in.ivan.billingapp.service.CategoryService;
 import in.ivan.billingapp.service.FileUpDelService;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,8 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
     private final FileUpDelService fileUpDelService;
+
+    private final ItemRepository itemRepository;
 
     @Override
     public CategoryResponse add(CategoryRequest request, MultipartFile file) {
@@ -72,6 +75,7 @@ public class CategoryServiceImpl implements CategoryService {
                 .imageUrl(entity.getImageUrl())
                 .createdAt(entity.getCreatedAt())
                 .updatedAt(entity.getUpdatedAt())
+                .itemNums(itemRepository.countByCategoryId(entity.getId()))
                 .build();
     }
 }
