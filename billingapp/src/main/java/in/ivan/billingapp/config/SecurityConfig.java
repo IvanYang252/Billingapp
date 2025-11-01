@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // ② Disable Cross-Site Request Forgery (CSRF) protection, common for stateless REST APIs using token-based authentication (like JWT).
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/encode").permitAll() // ③ Allow unauthenticated access to the /login endpoint (public access).
-                        .requestMatchers("/category", "/items").hasAnyRole("USER", "ADMIN") // ④ Restrict access to /category and /items to users with either the "USER" or "ADMIN" role.
+                        .requestMatchers("/categories", "/items").hasAnyRole("USER", "ADMIN") // ④ Restrict access to /category and /items to users with either the "USER" or "ADMIN" role.
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()) // ⑤ For all other requests, require the user to be authenticated (logged in).
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // ⑥ Configure session management to be STATELESS (no HTTP session will be created or used to store user state, typical for JWT).
