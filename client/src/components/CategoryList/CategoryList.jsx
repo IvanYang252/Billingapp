@@ -30,7 +30,7 @@ const CategoryList = () => {
     }
 
     return (
-        <div className="category-list-container" style={{height:'100vh', overflow:'auto', overflow:'hidden'}}>
+        <div className="category-list-container" style={{height:'100vh', overflowY:'auto', overflowX:'hidden'}}>
             <div className="row pe-2">
                 <div className="input-group mb-3">
                     <input type="text" 
@@ -58,7 +58,7 @@ const CategoryList = () => {
                                 {/* second cloumn */}
                                 <div className="flex-grow-1">
                                     <h5 className="mb1 text-white">{category.name}</h5>
-                                    <p className="mb-0 text-white">number of items</p>
+                                    <p className="mb-0 text-white">{category.itemNums} items</p>
                                 </div>
                                 {/* third cloumn */}
                                 <div className="btn">

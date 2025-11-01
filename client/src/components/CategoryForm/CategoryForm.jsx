@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext.jsx";
-import {assets} from "../../assets/assets.js";
+import { assets } from "../../assets/assets.js";
 import toast from "react-hot-toast";
-import {addCategory} from "../../Service/CategoryService.js";
+import { addCategory } from "../../Service/CategoryService.js";
 
 const CategoryForm = () => {
 
@@ -30,6 +30,7 @@ const CategoryForm = () => {
         e.preventDefault();
         if (!image) {
             toast.error("Please select image to keep adding category")
+            return;
         }
         setLoading(true);
         // FormData is a special object used to construct a set of key/value pairs representing form fields and their values.
