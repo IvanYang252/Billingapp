@@ -15,6 +15,12 @@ export const AppContextProvider = (props) => {
     // Runs once when the component loads ([] means only on first render)
     useEffect(() => {
         async function loadData() {
+            if (localStorage.getItem("token") && localStorage.getItem("role")) {
+                setAuthData(
+                    localStorage.getItem("token"),
+                    localStorage.getItem("role")
+                )
+            }
             const categoryResponse = await readCategories(); // Call backend service to get category data
             const itemResponse = await getItems();
             setCategories(categoryResponse.data); // Save data into state
